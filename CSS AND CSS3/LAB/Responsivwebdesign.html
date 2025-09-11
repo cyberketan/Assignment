@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: cadetblue;
+        }
+
+        .nav {
+            padding: 20px;
+            background-color: #333;
+            text-align: center;
+        }
+
+        .nav a {
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            margin: 10px;
+        }
+        .content{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .column{
+            padding: 80px;
+            background-color: #f4f4f4;
+            border-radius: 12px;
+        }
+        footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    
+     
+     @media (max-width: 768px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+      nav a{
+        display: block;
+        font-size: 10px;
+        margin: 10px;
+      }
+    }
+      
+       
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Service</a>
+        <a href="#">Contact</a>
+    </div>
+    <div class="content">
+        <div class="column">
+            <h2>Main section</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet feugiat eros. Suspendisse potenti.</p>
+        </div>
+        <div class="column">
+            <h2>Sidebar</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet feugiat eros. Suspendisse potenti.</p>
+        </div>
+    </div>
+
+  <footer>
+    <p>
+         &copy; 2025 My Website | All Rights Reserved.
+    </p>
+
+  </footer>
+
+</body>
+
+</html>
