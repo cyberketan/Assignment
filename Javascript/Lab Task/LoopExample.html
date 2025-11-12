@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>Loop , While , do-while loop</h1>
+</head>
+<body>
+    <script>
+         // print to 1-10 number use for for- loop
+        for (let i = 1; i <= 10; i++) {
+            document.write("<br> Number is =",+i)
+        }
+
+
+         let i = 1;      
+        let sum = 0;    
+
+        // while loop runs until i <= 20
+        while (i <= 20) {
+            if (i % 2 === 0) {sum += i;}
+            i++;  
+        }
+        document.write("<br>Sum of even numbers between 1 and 20 is:", sum)
+
+// Do-While Loop Example //
+          let number;
+
+        
+        do {
+            number = parseInt(prompt("Enter a number greater than 10:"));
+        } while (number <= 10);  
+
+        console.log("Thank you! You entered:", number);
+
+    </script>
+    
+</body>
+</html>

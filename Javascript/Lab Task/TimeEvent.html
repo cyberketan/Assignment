@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <h1>setTimeout and setInterval</h1>
+    <p>Change backgrouund color in 5 sec</p> -->
+
+    <h1> Setinterval create a digital clock</h1>
+</head>
+<body>
+    <span id="sec">00</span>
+    <span id="min">00</span>
+    <span id="hour">00</span>
+    <span></span>
+      
+    <script>
+    //    setTimeout(function() {
+    //   document.body.style.backgroundColor = "lightblue";
+    //   alert("Background color changed!");
+    // }, 5000);
+    let count = 0
+    let min = 0
+    let hour = 0
+
+    setInterval(() => {
+        document.getElementById('sec').innerHTML = count ++
+        if (count > 5){
+            document.getElementById('min').innerHTML = ++min
+            count = 0
+        }
+        if (min > 1){
+            document.getElementById('hour').innerHTML = ++hour
+            min=0
+        }
+        
+    }, 2000);
+
+
+    </script>
+    
+</body>
+</html>
