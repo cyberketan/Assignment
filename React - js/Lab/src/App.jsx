@@ -13,6 +13,7 @@ import Form from './Froms In React/From';
 // import Form from './Froms In React/From';
 import Task from './Froms In React/From';
 
+
 function App() {
   // const [count, setCount] = useState(0)
 
@@ -33,7 +34,8 @@ function App() {
 
         {/* <From/> */}
 
-        <Task/>
+        {/* <Task/> */}
+      
   
       </div>
      
