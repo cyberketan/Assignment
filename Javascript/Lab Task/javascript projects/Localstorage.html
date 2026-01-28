@@ -1,0 +1,116 @@
+import React, { useEffect, useState } from 'react';
+
+const Localstorage = () => {
+  const [data, setdata] = useState([]);
+  const [id, setId] = useState("");
+  const [form, setform] = useState({
+    name: "",
+    age: "",
+    email: "",
+    
+  });
+
+  const handlechange = (e) => {
+    let { name, value } = e.target;
+    setform({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  useEffect(() => {
+    let alldata = JSON.parse(localStorage.getItem("userData"));
+    if (alldata != null) setdata(alldata);
+  }, []);
+
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    let data1;
+
+    if(id !== "") {
+      data1 = data.map((i,index) =>{
+        if(index == id){
+          return form
+        }
+        return i
+      })
+    } else {
+      data.push(form);
+      data1 = [...data];
+    }
+    setdata(data1)
+    localStorage.setItem("userData", JSON.stringify(data1));
+    setform({
+      name: "",
+      age: "",
+      email: "",
+    
+    });
+    setId("");
+  };
+
+
+
+  const deldata = (id) => {
+    let res = data.filter((i, index) => index !== id);
+    setdata(res);
+    localStorage.setItem("userData", JSON.stringify(res));
+  };
+ const editData = (id) =>{
+  let res = data.find((i,index) => index == id);
+  setform(res);
+  setId(id);
+ };
+
+  return (
+    <div>
+      <form onSubmit={handlesubmit}>
+        <label>Name:</label>
+        <input type="text" name="name" value={form.name} onChange={handlechange} />
+        <br />
+
+        <label>Age:</label>
+        <input type="number" name="age" value={form.age} onChange={handlechange} />
+        <br />
+
+        <label>Email:</label>
+        <input type="email" name="email" value={form.email} onChange={handlechange} />
+        <br />
+
+       
+
+        <button type="submit">Save</button>
+      </form>
+
+      <table  >
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {data.map((i, index) => (
+            <tr>
+              <td>{index + 1}</td>
+              <td>{i.name}</td>
+              <td>{i.age}</td>
+              <td>{i.email}</td>
+             
+              <td>
+                <button onClick={() =>editData(index)}>Edit</button>
+                <button onClick={() => deldata(index)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default Localstorage;
